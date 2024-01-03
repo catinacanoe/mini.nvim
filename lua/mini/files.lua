@@ -1001,12 +1001,12 @@ MiniFiles.default_filter = function(fs_entry) return true end
 ---@return ... Icon and highlight group name. For more details, see |MiniFiles.config|
 ---   and |MiniFiles-examples|.
 MiniFiles.default_prefix = function(fs_entry)
-  if fs_entry.fs_type == 'directory' then return ' ', 'MiniFilesDirectory' end
+  if fs_entry.fs_type == 'directory' then return '  ', 'MiniFilesDirectory' end
   local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
-  if not has_devicons then return ' ', 'MiniFilesFile' end
+  if not has_devicons then return '  ', 'MiniFilesFile' end
 
   local icon, hl = devicons.get_icon(fs_entry.name, nil, { default = false })
-  return (icon or '') .. ' ', hl or 'MiniFilesFile'
+  return (icon or ' ') .. ' ', hl or 'MiniFilesFile'
 end
 
 --- Default sort of file system entries
